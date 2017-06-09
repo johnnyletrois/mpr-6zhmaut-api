@@ -20,10 +20,8 @@ connection.on("open", function () {
   var zones = {};
 
   connection.write("?10\r");
-  connection.write("\r");
-  connection.write("?20\r");
-  connection.write("\r");
-  connection.write("?30\r");
+  //connection.write("?20\r");
+  //connection.write("?30\r");
 
   connection.on('data', function(data) {
     console.log(data);
@@ -147,10 +145,8 @@ connection.on("open", function () {
     zones[req.zone] = undefined;
     connection.write("<"+req.zone+req.attribute+req.body+"\r");
     connection.write("?10\r");
-    connection.write("\r");
-    connection.write("?20\r");
-    connection.write("\r");
-    connection.write("?30\r");
+    //connection.write("?20\r");
+    //connection.write("?30\r");
     async.until(
       function () { return typeof zones[req.zone] !== "undefined"; },
       function (callback) {
@@ -165,10 +161,8 @@ connection.on("open", function () {
   app.get('/zones/:zone/:attribute', function(req, res) {
     zones[req.zone] = undefined;
     connection.write("?10\r");
-    connection.write("\r");
-    connection.write("?20\r");
-    connection.write("\r");
-    connection.write("?30\r");
+    //connection.write("?20\r");
+    //connection.write("?30\r");
     async.until(
       function () { return typeof zones[req.zone] !== "undefined"; },
       function (callback) {
