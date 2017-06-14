@@ -22,6 +22,7 @@ connection.on("open", function () {
   connection.write("?10\r");
   //connection.write("?20\r");
   //connection.write("?30\r");
+  //try this: https://stackoverflow.com/questions/14249506/how-can-i-wait-in-node-js-javascript-l-need-to-pause-for-a-period-of-time
 
   connection.on('data', function(data) {
     console.log(data);
